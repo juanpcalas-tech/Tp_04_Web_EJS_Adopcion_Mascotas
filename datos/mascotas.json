@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "nombre": "Algodoncito",
+    "especie": "Conejo",
+    "edad": 0.8,
+    "descripcion": "Conejo blanco muy dócil. Le encanta comer zanahorias y alfalfa fresca. Acostumbrado a convivir con otras mascotas pequeñas.",
+    "estado": "En adopción",
+    "imagen": "../img/conejo.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Tina",
+    "especie": "Perro",
+    "edad": 3,
+    "descripcion": "Una perra Ovejero Pelo Largo muy activa y guardián. Le gusta mucho ladrarle a los desconocidos pero se encariña muy rápido.",
+    "estado": "En adopción",
+    "imagen": "../img/Ovejero.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Bella",
+    "especie": "Gato",
+    "edad": 2,
+    "descripcion": "Gatita elegante y silenciosa. Pasa el día tomando el sol en la ventana y es muy independiente.",
+    "estado": "En adopción",
+    "imagen": "../img/gatito.webp"
+  },
+
+  {
+    "id": 4,
+    "nombre": "Cleo",
+    "especie": "Perro",
+    "edad": 4,
+    "descripcion": "Cachorrita muy mimosa. Es la reina del refugio, le gusta que la mimen pero solo cuando ella quiere.",
+    "estado": "En adopción",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjBEHDy594VMOwzH8Vw7wxHt27i-g1XYs6egS4KHtVzw&s"
+  },
+  {
+    "id": 5,
+    "nombre": "Piolín",
+    "especie": "Pájaro",
+    "edad": 1,
+    "descripcion": "Un canario amarillo que canta hermoso por las mañanas. Busca un hogar donde pueda tener una jaula muy amplia.",
+    "estado": "En adopción",
+    "imagen": "../img/Canario_amarillo.png"
+  },
+  {
+    "id": 6,
+    "nombre": "Gandalf",
+    "especie": "Gato",
+    "edad": 8,
+    "descripcion": "Gato gordo y perezoso. Su actividad favorita es meterse y rasguñar cajas.",
+    "estado": "En adopción",
+    "imagen": "../img/gato_perezoso.png"
+  }
+]

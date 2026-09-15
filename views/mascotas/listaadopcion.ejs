@@ -1,0 +1,30 @@
+<header class="cabecera-pagina">
+    <div>
+        <p class="etiqueta">LISTA DE MASCOTAS EN ADOPCIÓN</p>
+        <h1>
+            <%= titulodetalle %>   
+        </h1>
+
+    </div>
+    <a class="boton" href="/mascotas/nuevamascota">Agregar NUEVA Mascota</a>
+</header>
+<% if (mascotas.length===0) { %>
+    <p>No hay mascotas para mostrar.</p>
+    <% } else { %>
+        <section class="grilla" aria-label="Mascotas disponibles">
+            <% mascotas.forEach((mascota)=> { %>
+                <article class="tarjeta">
+                    <p class="etiqueta">
+                        <%= mascota.especie %>
+                    </p>
+                    <h2>
+                        <%= mascota.nombre %>
+                    </h2>
+                    <p class="edad">Edad: <%= mascota.edad%>
+                    </p>
+                    <img src=<%= mascota.imagen %> alt="" width="200" height="200">
+                    <a href="/mascotas/<%= mascota.id %>">Ver detalle</a>
+                </article>
+                <% }) %>
+        </section>
+        <% } %>

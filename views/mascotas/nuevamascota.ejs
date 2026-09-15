@@ -1,0 +1,26 @@
+<section class="panel-formulario">
+    <p class="etiqueta">MASCOTA NUEVA</p>
+    <h1>
+        <%= titulodetalle %>
+    </h1>
+    <% if (error) { %>
+        <p class="error" role="alert">
+            <%= error %>
+        </p>
+        <% } %>
+            <form action="/mascotas" method="post" class="formulario">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" value="<%= valores.nombre ?? '' %>" required>
+                <label for="especie">Especie</label>
+                <input id="especie" name="especie" value="<%= valores.especie ?? '' %>" required>
+                <label for="edad">Edad</label>
+                <input id="edad" name="edad" type="number" min="0" step="0.1" value="<%= valores.edad ?? '' %>"
+                    required>
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" rows="3" required><%= valores.descripcion ?? '' %></textarea> 
+                <label for="estado">Estado de Adopción</label>
+                <input id="estado" name="estado" value="<%= valores.estado ?? '' %>" required>
+
+                <button type="submit">Guardar producto</button>
+</form>
+</section>
