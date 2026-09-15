@@ -59,3 +59,27 @@ En caso de error, se muestra un mensaje en la misma vista.
 Los datos de mascotas se leen inicialmente desde datos/mascotas.json.
 Al agregar una nueva mascota, se actualiza el arreglo en memoria y se asigna un ID único.
 Actualmente, los cambios no se guardan en el archivo JSON.
+
+*************************************************************************************************
+Respuestas:
+# diferencia entre layout, vista y parcial
+* Layout referencia la Plantilla General o Archivo Maestro que define  la estructura común del sitio web.  (<html>, <head>, <body>), los llamados a menús de navegación superiores y el pie de página 
+* View es el contenido principal que representa a una página web específica a la que entramos. ()
+* Partials son componentes o fragmentos de codigo reutilizables de código HTML en su mayoria pequeños y aislados que se crean para usarse diferentes lugares y varia veces.
+
+# datos enviados a una vista mediante res.render
+Son los datos de la vista que puedes imprimir directamente en el código HTML.
+
+# función de express.static
+Esta funcion le indica servidor dónde están guardados los archivos estáticos, es decir, los archivos que no cambian y que el navegador web necesita para que la página funcione y se vea bien (imagenes,estilos css)
+
+# función de express.urlencoded
+Sirve para que mi servidor de Express pueda entender y leer los datos que envío a través de un formulario HTML.
+
+# recorrido POST, redirección y GET
+Post: Envia los datos del formulario para crear o ejectura lo solicitado.
+Redirect: Una ves cargados los datos enviados nos redirecciona a la pagina o endpoint que le indique.
+Get: Nos trae o visualiza el contenido de la pagina o endpont que solicito ("/" Pag ppal, "/mascotas" Listado de Mascotas, "/mascotas/detalle" Detalle de cada mascota, etc)
+
+# motivo por el cual el nuevo registro desaparece al reiniciar.
+Es porque el Post y push guarda los datos del formulario en memoria pero no da el alta fisica o modifica el archivo .json que tengo con los datos de origen.
