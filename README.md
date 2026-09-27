@@ -18,13 +18,9 @@ La aplicación correra en http://localhost:3000.
 
 # Páginas y rutas
 /                       Página inicial con mensaje de bienvenida.
-
 /mascotas               Listado de mascotas disponibles para adopción.
-
 /mascotas/nuevamascota  Formulario para agregar una nueva mascota.
-
 /mascotas/:id            Detalle de una mascota específica por su identificador.
-
 POST /mascotas           Procesa el formulario y agrega una nueva mascota.
 
 ## Estructura de vistas
@@ -52,7 +48,7 @@ Edad
 Descripción
 Estado (En adopción, Reservada, Adoptada)
 
-La validación asegura que todos los campos estén completos y que la edad sea un número válido mayor a 0.
+La validación asegura que todos los campos estén completos y que la edad sea un número válido mayor o igual a 0.
 En caso de error, se muestra un mensaje en la misma vista.
 
 ## Persistencia de los datos

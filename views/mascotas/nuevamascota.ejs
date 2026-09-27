@@ -17,10 +17,19 @@
                 <input id="edad" name="edad" type="number" min="0" step="0.1" value="<%= valores.edad ?? '' %>"
                     required>
                 <label for="descripcion">Descripción</label>
-                <textarea id="descripcion" name="descripcion" rows="3" required><%= valores.descripcion ?? '' %></textarea> 
-                <label for="estado">Estado de Adopción</label>
-                <input id="estado" name="estado" value="<%= valores.estado ?? '' %>" required>
+                <textarea id="descripcion" name="descripcion" rows="3"
+                    required><%= valores.descripcion ?? '' %></textarea>
 
-                <button type="submit">Guardar producto</button>
-</form>
+                <label for="estado">Estado de Adopción</label>
+                <select id="estado" name="estado" required>
+                    <option value="" disabled <%=!valores.estado ? 'selected' : '' %>>Seleccione estado</option>
+                    <option value="En Adopción" <%=valores.estado==='En Adopción' ? 'selected' : '' %>>En Adopción
+                    </option>
+                    <option value="Reservada" <%=valores.estado==='Reservada' ? 'selected' : '' %>>Reservada</option>
+                    <option value="Adoptada" <%=valores.estado==='Adoptada' ? 'selected' : '' %>>Adoptada</option>
+                </select>
+
+
+                <button type="submit">Guardar Mascota</button>
+            </form>
 </section>

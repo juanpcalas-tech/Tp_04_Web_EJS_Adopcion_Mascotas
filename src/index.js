@@ -1,6 +1,6 @@
 const path = require("node:path");
 const express = require("express");
-const { leerJsonMascotas } = require("./archivo");
+const { leerJsonMascotas } = require("./archivos");
 const expressLayouts = require("express-ejs-layouts");
 const rutasMascotas = path.join(__dirname, "..", "datos", "mascotas.json");
 
@@ -9,7 +9,6 @@ async function main() {
     const PORT = 3000;
 
     const mascotas = await leerJsonMascotas(rutasMascotas);
-    //    console.log("Mascotas leídas desde el archivo JSON:", mascotas);
     app.set("view engine", "ejs");
     app.set("views", path.join(__dirname, "..", "views"));
 
@@ -64,7 +63,7 @@ async function main() {
             !especieLimpia ||
             !descripcionLimpia ||
             !Number.isFinite(edadNumerica) ||
-            edadNumerica <= 0 ||
+            edadNumerica < 0 ||
             !estadoLimpio
         ) {
             return res.status(400).render("mascotas/nuevamascota", {
@@ -84,6 +83,7 @@ async function main() {
             edad: edadNumerica,
             descripcion: descripcionLimpia,
             estado: estadoLimpio,
+            imagen: "img/mascota.svg"
         });
         res.redirect("/mascotas");
     });
