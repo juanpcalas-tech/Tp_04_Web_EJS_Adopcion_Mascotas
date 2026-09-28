@@ -27,8 +27,8 @@ async function main() {
         res.render("mascotas/listaadopcion", { titulodetalle: "Mascotas Disponibles para Adopción", mascotas });
     });
 
-    app.get("/mascotas/nuevamascota", (req, res) => {
-        res.render("mascotas/nuevamascota", {
+    app.get("/mascotas/nueva", (req, res) => {
+        res.render("mascotas/nueva", {
             titulodetalle: "Agregar Nueva Mascota",
             error: null,
             valores: {},
@@ -66,7 +66,7 @@ async function main() {
             edadNumerica < 0 ||
             !estadoLimpio
         ) {
-            return res.status(400).render("mascotas/nuevamascota", {
+            return res.status(400).render("mascotas/nueva", {
                 titulodetalle: "Agregar Nueva Mascota",
                 error: "Completá todos los campos con valores válidos.",
                 valores: req.body,
