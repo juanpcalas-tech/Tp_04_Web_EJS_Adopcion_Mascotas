@@ -1,51 +1,48 @@
 const path = require("node:path");
 const express = require("express");
-const { leerJsonMascotas } = require("./archivos");
 const expressLayouts = require("express-ejs-layouts");
+const { leerJsonMascotas } = require("./archivos");
 const rutasMascotas = path.join(__dirname, "..", "datos", "mascotas.json");
 
 async function main() {
     const app = express();
     const PORT = 3000;
-
     const mascotas = await leerJsonMascotas(rutasMascotas);
+
     app.set("view engine", "ejs");
     app.set("views", path.join(__dirname, "..", "views"));
-
-    app.use(expressLayouts);
     app.set("layout", "layouts/main");
-
+    
+    app.use(expressLayouts);
     app.use(express.static(path.join(__dirname, "..", "public")));
-
     app.use(express.urlencoded({ extended: false }));
 
     app.get("/", (req, res) => {
-        res.render("comenzar", { titulodetalle: "Adopcion de Mascotas" });
+        res.status(200).render("inicio", { titulodetalle: "Adopcion de Mascotas" });
     });
 
     app.get("/mascotas", (req, res) => {
-        res.render("mascotas/listaadopcion", { titulodetalle: "Mascotas Disponibles para Adopción", mascotas });
+        res.status(200).render("mascotas/lista", { titulodetalle: "Mascotas Disponibles para Adopción", mascotas });
     });
 
     app.get("/mascotas/nueva", (req, res) => {
-        res.render("mascotas/nueva", {
+        res.status(200).render("mascotas/nueva", {
             titulodetalle: "Agregar Nueva Mascota",
             error: null,
             valores: {},
         });
     });
 
-
     app.get("/mascotas/:id", (req, res) => {
         const id = Number(req.params.id);
         const mascota = mascotas.find((elemento) => elemento.id === id);
         if (!mascota) {
-            return res.status(404).render("no_encontrado", {
+            return res.status(404).render("no-encontrado", {
                 titulodetalle: "Mascota no encontrada",
                 mensaje: "No existe una mascota con ese identificador.",
             });
         }
-        res.render("mascotas/detalleadopcion", {
+        res.status(200).render("mascotas/detalle", {
             titulodetalle: mascota.nombre,
             mascota,
         });
@@ -58,13 +55,17 @@ async function main() {
         const descripcionLimpia = String(descripcion ?? "").trim();
         const edadNumerica = Number(edad ?? NaN);
         const estadoLimpio = String(estado ?? "").trim();   
+
+        const estadosValidos = ["En Adopción", "Reservada", "Adoptada"];
+
         if (
             !nombreLimpio ||
             !especieLimpia ||
             !descripcionLimpia ||
             !Number.isFinite(edadNumerica) ||
             edadNumerica < 0 ||
-            !estadoLimpio
+            !estadoLimpio ||
+            !estadosValidos.includes(estadoLimpio) 
         ) {
             return res.status(400).render("mascotas/nueva", {
                 titulodetalle: "Agregar Nueva Mascota",
@@ -85,7 +86,7 @@ async function main() {
             estado: estadoLimpio,
             imagen: "img/mascota.svg"
         });
-        res.redirect("/mascotas");
+        res.status(302).redirect("/mascotas");
     });
 
     app.listen(PORT, () => {

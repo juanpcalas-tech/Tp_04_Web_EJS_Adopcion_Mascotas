@@ -5,7 +5,7 @@
     "especie": "Conejo",
     "edad": 0.8,
     "descripcion": "Conejo blanco muy dócil. Le encanta comer zanahorias y alfalfa fresca. Acostumbrado a convivir con otras mascotas pequeñas.",
-    "estado": "En adopción",
+    "estado": "Adoptada",
     "imagen": "/img/mascota.svg"
   },
   {
@@ -42,7 +42,7 @@
     "especie": "Pájaro",
     "edad": 1,
     "descripcion": "Un canario amarillo que canta hermoso por las mañanas. Busca un hogar donde pueda tener una jaula muy amplia.",
-    "estado": "En adopción",
+    "estado": "Reservada",
     "imagen": "/img/mascota.svg"
   },
   {

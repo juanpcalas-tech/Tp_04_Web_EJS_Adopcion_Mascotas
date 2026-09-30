@@ -2,7 +2,7 @@
     <div>
         <p class="etiqueta">LISTA DE MASCOTAS EN ADOPCIÓN</p>
         <h1>
-            <%= titulodetalle %>   
+            <%= titulodetalle %>
         </h1>
 
     </div>
@@ -22,7 +22,9 @@
                     </h2>
                     <p class="edad">Edad: <%= mascota.edad%>
                     </p>
-                    <img src=<%= mascota.imagen %> alt="" width="200" height="200">
+                    <p class="etiqueta">
+                        <%= mascota.estado %>
+                    </p>
                     <a href="/mascotas/<%= mascota.id %>">Ver detalle</a>
                 </article>
                 <% }) %>
